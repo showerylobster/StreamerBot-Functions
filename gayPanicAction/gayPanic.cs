@@ -46,6 +46,7 @@ public class CPHInline
     private String WHITE_SCREEN = "Panic Reached";
     private String GIF = "Nose Bleed";
     private String SKYRIM = "Skyrim";
+	private String GAY_PANIC_TEXT = "Gay Panic: ";
 	
     // global variables
     private String CHAT_DICTIONARY = "global_chatter_dictionary";
@@ -194,7 +195,7 @@ public class CPHInline
         String previousLevel = CPH.GetGlobalVar<String>(PREVIOUS_LEVEL);
         CPH.ObsShowSource(PANIC_SCENE, panicLevel);
         CPH.ObsHideSource(PANIC_SCENE, previousLevel);
-        CPH.ObsSetGdiText(PANIC_SCENE, panicLevel, "Gay Panic: " + percentPanic.ToString("#.##") + "%");
+        CPH.ObsSetGdiText(PANIC_SCENE, panicLevel, GAY_PANIC_TEXT + percentPanic.ToString("#.##") + "%");
         if (percentPanic == 69)
         {
             CPH.PlaySound(FILE_PATH + "Michael Rosen - (just) _click_ Nice.mp3");
@@ -272,7 +273,7 @@ public class CPHInline
         String previousLevel = CPH.GetGlobalVar<String>(PREVIOUS_LEVEL);
 		
         // reset sources
-        CPH.ObsSetGdiText(PANIC_SCENE, panicLevel, "Chat Panic: 0%");
+        CPH.ObsSetGdiText(PANIC_SCENE, panicLevel, GAY_PANIC_TEXT + "0%");
         CPH.ObsShowSource(PANIC_SCENE, panicLevel);
         CPH.ObsHideSource(PANIC_SCENE, previousLevel);
     }
