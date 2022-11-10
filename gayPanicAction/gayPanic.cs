@@ -82,7 +82,6 @@ public class CPHInline
         CPH.Wait(1000);
         // do gay shit
         gayPanic();
-		CPH.SendMessage("Run gay panic method");
         // exit
         return true;
     }
