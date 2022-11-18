@@ -202,7 +202,7 @@ public class CPHInline
             return;
         }
 
-        if (percentPanic == 95)
+        if (percentPanic >= 95 && percentPanic < 96)
         {
             CPH.PlaySound(FILE_PATH + "untouchedOpening.mp3");
             CPH.Wait(THREE_SECONDS);
@@ -280,17 +280,12 @@ public class CPHInline
     private void increaseChatterPanic(int panicVal, String chatter)
     {
         chatterPanic = CPH.GetGlobalVar<Dictionary<String, int>>(CHAT_DICTIONARY);
-        /*if (chatterPanic == null || chatterPanic.Count == 0)
-        {
-            chatterPanic = new Dictionary<String, int>();
-            chatterPanic.Add(chatter, panicVal);
-            CPH.SendMessage("@" + chatter + " is starting to feel the gay panic at " + panicVal.ToString() + "%");
-            CPH.PlaySound(FILE_PATH + "queer/Hello I'm queer - Everybody Loves Raymond .mp3");
-            CPH.SetGlobalVar(CHAT_DICTIONARY, chatterPanic);
-            return;
-        }*/
+
+		if(chatterPanic is null)
+			chatterPanic = new Dictionary<String, int>();
+
         // if new chatter, their journey begins
-        if ((chatterPanic ??= new Dictionary<String, int>()).ContainsKey(chatter))
+        if (chatterPanic.ContainsKey(chatter))
         {
             chatterPanic.Add(chatter, panicVal);
             CPH.SendMessage("@" + chatter + " is starting to feel the gay panic at " + panicVal.ToString() + "%");
